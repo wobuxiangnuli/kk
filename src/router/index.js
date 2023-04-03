@@ -20,82 +20,82 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'routeName',
+    name: 'homeview',
     component: () => import('../views/HomeView.vue'),
     children:[
       {
         path: 'actor-list',
-        name: 'routeName',
+        name: 'actorList',
         component: () => import('../views/actor/ActorList.vue'),
       },
       {
         path: 'actor-add',
-        name: 'routeName',
+        name: 'actorAdd',
         component: () => import('../views/actor/ActorAdd.vue'),
       },
       {
         path: 'director-list',
-        name: 'routeName',
+        name: 'directorList',
         component: () => import('../views/director/DirectorList.vue'),
       },
       {
         path: 'director-add',
-        name: 'routeName',
+        name: 'directorAdd',
         component: () => import('../views/director/DirectorAdd.vue'),
       },
       {
         path: 'movie-list',
-        name: 'routeName',
+        name: 'movie-list',
         component: () => import('../views/movie/MovieList.vue'),
       },
       {
         path: 'movie-add',
-        name: 'routeName',
+        name: 'movieAdd',
         component: () => import('../views/movie/MovieAdd.vue'),
       },
        {
         path: 'movie-update/:id',
-        name: 'routeName',
+        name: 'movieUpdate',
         component: () => import('../views/movie/MovieUpdate.vue'),
       },
       {
         path: 'thumb-list/:movie_id',
-        name: 'routeName',
+        name: 'thumbList',
         component: () => import('../views/thumb/ThumbList.vue'),
       },
       {
         path: 'cinema-add',
-        name: 'routeName',
+        name: 'cinemaAdd',
         component: () => import('../views/cinema/CinemaAdd.vue'),
       },
       {
         path: 'cinema-list',
-        name: 'routeName',
+        name: 'cinemaList',
         component: () => import('../views/cinema/CinemaList.vue'),
       },
       {
         path: 'cinema-update/:id',
-        name: 'routeName',
+        name: 'cinemaUpdate',
         component: () => import('../views/cinema/CinemaUpdate.vue'),
       },
       {
         path: 'cinema-room-list/:id',
-        name: 'routeName',
+        name: 'cinemaRoomList',
         component: () => import('../views/cinema/CinemaRoomList.vue'),
       },
       {
         path: 'cinema-room-seat-template/:id',
-        name: 'routeName',
+        name: 'cinemaRoomSeat',
         component: () => import('../views/cinema/CinemaRoomSeatTemplate.vue'),
       }, 
       {
         path: '/home/showingon-plan/:id',
-        name: 'routeName',
+        name: 'showingonDetail',
         component: () => import('../views/showingon-plan/ShowingonPlanAdd.vue'),
       },
       {
         path: '/home/showingon-plan/list/:id',
-        name: 'routeName',
+        name: 'showingonList',
         component: () => import('../views/showingon-plan/ShowingonPlanList.vue'),
       },
       
@@ -104,7 +104,7 @@ const routes = [
   },
    {
         path: '/user/login',
-        name: 'routeName',
+        name: 'login',
         component: () => import('../views/user/Login.vue'),
       },
 ]

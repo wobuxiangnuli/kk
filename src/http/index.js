@@ -8,8 +8,8 @@ import CinemaRoomApi from './apis/CinemaApiRoom';
 import ShowingonPlanApi from './apis/ShowingonPlanApi';
 import AdminApi from './apis/AdminApi';
 
-const httpApis={
-    ActorApi  ,
+const httpApis = {
+    ActorApi,
     DirectorApi,
     MovieApi,
     MovieThumbApi,
@@ -17,8 +17,6 @@ const httpApis={
     CinemaRoomApi,
     ShowingonPlanApi,
     AdminApi
-
-
 }
 
 export default httpApis

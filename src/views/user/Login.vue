@@ -1,31 +1,16 @@
 <template>
   <div>
     <div class="back">
-      <el-form
-        class="form"
-        label-position="left"
-        :model="form"
-        :rules="rules"
-        ref="form"
-      >
+      <el-form class="form" label-position="left" :model="form" :rules="rules" ref="form">
         <p class="title">Welcome</p>
         <el-form-item prop="loginname">
-          <el-input
-            v-model="form.loginname"
-            placeholder="请输入管理员账号"
-          ></el-input>
+          <el-input v-model="form.loginname" placeholder="请输入管理员账号"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input
-            v-model="form.password"
-            type="password"
-            placeholder="请输入管理员密码"
-          ></el-input>
+          <el-input v-model="form.password" type="password" placeholder="请输入管理员密码"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" style="width: 100%" @click="onSubmit()"
-            >登录</el-button
-          >
+          <el-button type="primary" style="width: 100%" @click="onSubmit()">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -67,7 +52,7 @@ export default {
       this.$refs["form"].validate((valid) => {
         if (valid) {
           this.$http.AdminApi.login(this.form).then((res) => {
-            console.log("登录请求", res);
+            console.log("登录请求", res.data);
             if (res.data.code == 200) {
               // 将用户信息存入vuex
               this.$store.commit("saveUserState", res.data.data);
@@ -95,25 +80,30 @@ export default {
   top: 30%;
   left: 40%;
 }
+
 .form .title {
   text-align: center;
   font-size: 1.5em;
   color: white;
   margin-bottom: 20px;
 }
+
 .back {
   height: 100vh;
   background-image: linear-gradient(125deg, #e14040, #b050cd, #4842c9, #34828d);
   background-size: 500%;
   animation: animate 20s infinite;
 }
+
 @keyframes animate {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
