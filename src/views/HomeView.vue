@@ -96,6 +96,11 @@ export default {
       this.$router.push("/user/login");
     },
   },
+  mounted: function() {
+    this.$http.AdminApi.userinfo().then((res) => {
+      
+    })
+  }
 };
 </script>
 
