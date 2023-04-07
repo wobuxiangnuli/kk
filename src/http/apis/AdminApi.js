@@ -2,9 +2,13 @@ import myAxios from "../MyAxios";
 // import BASEURL from '../BaseUrl';
 
 const AdminApi = {
-  // 查询演员列表接口
+  // 登录接口
   login(params) {
     return myAxios.post('/user/login', params)
+  },
+  // 查询登录用户数据
+  userinfo(params) {
+    return myAxios.get('/user/info', params)
   },
 }
 

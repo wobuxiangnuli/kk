@@ -12,5 +12,12 @@ export default {
             message: 'success',
             data: data
         };
+    },
+    'get|/mock/user/info': option => {
+        return {
+            code: 200,
+            message: 'success',
+            data: data
+        };
     }
 }

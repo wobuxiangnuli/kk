@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,7 @@ const routes = [
     path: '/home',
     name: 'homeview',
     component: () => import('../views/HomeView.vue'),
-    children:[
+    children: [
       {
         path: 'actor-list',
         name: 'actorList',
@@ -53,7 +54,7 @@ const routes = [
         name: 'movieAdd',
         component: () => import('../views/movie/MovieAdd.vue'),
       },
-       {
+      {
         path: 'movie-update/:id',
         name: 'movieUpdate',
         component: () => import('../views/movie/MovieUpdate.vue'),
@@ -87,7 +88,7 @@ const routes = [
         path: 'cinema-room-seat-template/:id',
         name: 'cinemaRoomSeat',
         component: () => import('../views/cinema/CinemaRoomSeatTemplate.vue'),
-      }, 
+      },
       {
         path: '/home/showingon-plan/:id',
         name: 'showingonDetail',
@@ -98,21 +99,30 @@ const routes = [
         name: 'showingonList',
         component: () => import('../views/showingon-plan/ShowingonPlanList.vue'),
       },
-      
+
     ],
-   
+
   },
-   {
-        path: '/user/login',
-        name: 'login',
-        component: () => import('../views/user/Login.vue'),
-      },
+  {
+    path: '/user/login',
+    name: 'login',
+    component: () => import('../views/user/Login.vue'),
+  },
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  // 用户未登录，将用户重定向到登录页面
+  if (!store.state.token && to.path != '/user/login') {
+    next(`/user/login`)
+  } else {
+    next();
+  }
 })
 
 export default router
